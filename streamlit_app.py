@@ -26,8 +26,8 @@ with st.sidebar:
     top_p: float = st.slider('Top P', 0.00, 1.00, 1.00, step=0.01)
 
     if st.button('New Button'):
-        st.session_state.messages = []
-        st.experimental_rerun()
+    st.session_state.messages = []
+    st.experimental_rerun()
 
 client = Groq(api_key=os.environ.get('GROQ_API_KEY'))
 
@@ -54,5 +54,5 @@ if user_input:
 
     st.session_state.messages.append({'role': 'assistant', 'content': response})
 
-    with chat_message('assistant'):
+   with chat_message('assistant'):
         st.markdown('response', unsafe_allow_html=True)
