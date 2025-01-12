@@ -15,8 +15,7 @@ model_max_tokens = {
     'llama3-70b-8192': 8192,
     'llama3-8b-8192': 8192,
     'mixtral-8x7b-32768': 32768,
-    'gemma-7b-it': 8192
-}
+    'gemma-7b-it': 8192}
 
 with st.sidebar:
     model: str = st.selectbox('Choose a LLM to chat', ('llama3-70b-8192', 'llama3-8b-8192', 'mixtral-8x7b-32768', 'gemma-7b-it'))
@@ -26,8 +25,8 @@ with st.sidebar:
     top_p: float = st.slider('Top P', 0.00, 1.00, 1.00, step=0.01)
 
     if st.button('New Button'):
-    st.session_state.messages = []
-    st.experimental_rerun()
+        st.session_state.messages = []
+        st.experimental_rerun()
 
 client = Groq(api_key=os.environ.get('GROQ_API_KEY'))
 
@@ -54,5 +53,10 @@ if user_input:
 
     st.session_state.messages.append({'role': 'assistant', 'content': response})
 
-   with chat_message('assistant'):
+    with chat_message('assistant'):
         st.markdown('response', unsafe_allow_html=True)
+
+#作者：七月正当夏
+#链接：https://juejin.cn/post/7361976584842264595
+#来源：稀土掘金
+#著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
