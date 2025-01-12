@@ -29,7 +29,7 @@ with st.sidebar:
         st.session_state.messages = []
         st.experimental_rerun()
 
-client = Groq(api_key=os.environ.get('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'))
+client = Groq(api_key=os.environ.get('GROQ_API_KEY'))
 
 user_input = st.chat_input('Say something...')
 
